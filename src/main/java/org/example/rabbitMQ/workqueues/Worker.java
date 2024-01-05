@@ -26,7 +26,8 @@ public class Worker {
         channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
         // TODO: 6.接收消息
         System.out.println("开始接收消息！");
-        channel.basicConsume(TASK_QUEUE_NAME, true, new DefaultConsumer(channel){
+        channel.basicQos(1);
+        channel.basicConsume(TASK_QUEUE_NAME, false, new DefaultConsumer(channel){
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
@@ -35,6 +36,7 @@ public class Worker {
                     doWork(message);
                 }finally {
                     System.out.println("消息处理完成！");
+                    channel.basicAck(envelope.getDeliveryTag(), false);
                 }
 
             }
