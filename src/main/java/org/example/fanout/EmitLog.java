@@ -25,6 +25,7 @@ public class EmitLog {
         String message = "info: Hello World!";
         channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes(StandardCharsets.UTF_8));
         System.out.println("发送了消息：" + message);
+        System.out.println();
 
         channel.close();
         connection.close();
