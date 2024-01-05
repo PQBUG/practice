@@ -20,6 +20,7 @@ public class EmitLogTopic {
         channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
 
         String message = "Animal World!";
+
         String[] routingKeys = new String[9];
         routingKeys[0] = "quick.orange.rabbit";
         routingKeys[1] = "lazy.orange.elephant";
