@@ -1,4 +1,4 @@
-package org.example.direct;
+package org.example.rabbitMQ.direct;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;

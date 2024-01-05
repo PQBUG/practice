@@ -1,4 +1,4 @@
-package org.example.fanout;
+package org.example.rabbitMQ.fanout;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
